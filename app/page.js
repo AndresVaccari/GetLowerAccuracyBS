@@ -4,6 +4,8 @@ import { useState } from "react";
 import { SongList } from "./components/SongList";
 import { InputForm } from "./components/InputForm";
 import { LoadingComponent } from "./components/LoadingComponent";
+import Footer from "./components/Footer";
+import Logo from "./components/Logo";
 
 export default function Home() {
   const [userId, setUserId] = useState("");
@@ -83,7 +85,8 @@ export default function Home() {
   }
 
   return (
-    <main className="h-screen w-screen flex flex-col justify-center items-center">
+    <main className="h-screen w-screen flex flex-col justify-center items-center bg-black">
+      <Logo list={list} />
       <InputForm
         generateDowloadableFile={generateDowloadableFile}
         getList={getList}
@@ -94,6 +97,7 @@ export default function Home() {
       />
       <LoadingComponent loading={loading} />
       <SongList list={list} />
+      <Footer />
     </main>
   );
 }

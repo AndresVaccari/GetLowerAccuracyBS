@@ -8,7 +8,7 @@ export function SongList({ list }) {
         <div className="flex flex-col gap-2 mt-4 h-2/3 overflow-y-scroll w-full items-center">
           {list.map((score, index) => (
             <div
-              className="grid grid-cols-6 gap-2 w-1/2 rounded-md p-2 bg-gray-800"
+              className="grid grid-cols-6 gap-2 w-1/2 rounded-md p-2 bg-gray-800 "
               key={index}
             >
               <Image
