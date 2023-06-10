@@ -16,6 +16,9 @@ export default function Home() {
 
   const [quantity, setQuantity] = useState(50);
 
+  const [minStars, setMinStars] = useState(0);
+  const [maxStars, setMaxStars] = useState(13);
+
   async function getList() {
     setList([]);
 
@@ -50,6 +53,13 @@ export default function Home() {
     }
 
     scoreList = scoreList.filter((score) => score.leaderboard.ranked === true);
+
+    scoreList = scoreList.filter(
+      (score) =>
+        score.leaderboard.stars >= minStars &&
+        score.leaderboard.stars <= maxStars
+    );
+
     scoreList.sort((score1, score2) => {
       const percentage1 = score1.score.baseScore / score1.leaderboard.maxScore;
       const percentage2 = score2.score.baseScore / score2.leaderboard.maxScore;
@@ -106,6 +116,10 @@ export default function Home() {
         setUserId={setUserId}
         quantity={quantity}
         setQuantity={setQuantity}
+        minStars={minStars}
+        setMinStars={setMinStars}
+        maxStars={maxStars}
+        setMaxStars={setMaxStars}
       />
       <LoadingComponent loading={loading} />
       <SongList list={list} />

@@ -21,7 +21,10 @@ export function SongList({ list }) {
               <div className="flex flex-col col-span-4 gap-2">
                 <span className="text-white">{score.leaderboard.songName}</span>
                 <span className="text-white">
-                  {score.leaderboard.songAuthorName}
+                  By {score.leaderboard.songAuthorName}
+                </span>
+                <span className="text-white">
+                  {score.leaderboard.levelAuthorName}
                 </span>
               </div>
               <div className="flex flex-col gap-2 align-bottom">
@@ -34,6 +37,9 @@ export function SongList({ list }) {
                     (score.score.baseScore / score.leaderboard.maxScore) *
                     100
                   ).toFixed(2) + "%"}
+                </span>
+                <span className="text-white flex items-center justify-center">
+                  {score.leaderboard.difficulty.difficultyRaw.split("_")[1]}
                 </span>
               </div>
             </div>
