@@ -26,7 +26,6 @@ export default function Home() {
       {
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
         },
         method: "GET",
       }
@@ -42,7 +41,6 @@ export default function Home() {
         {
           headers: {
             Accept: "application/json",
-            "Content-Type": "application/json",
           },
           method: "GET",
         }
