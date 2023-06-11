@@ -32,4 +32,4 @@ This project is licensed under the MIT License. For more information, please see
 
 ## Disclaimer
 
-This application is not affiliated with or endorsed by ScoreSaber. It is an independent project created by [your-name](https://github.com/your-username). Use it at your own risk.
+This application is not affiliated with or endorsed by ScoreSaber. It is an independent project created by [Andres Vaccari](https://github.com/AndresVaccari). Use it at your own risk.
