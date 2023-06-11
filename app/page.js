@@ -19,28 +19,17 @@ export default function Home() {
   const [minStars, setMinStars] = useState(0);
   const [maxStars, setMaxStars] = useState(13);
 
-  async function getList() {
+  const [fetchError, setFetchError] = useState(false);
+
+  async function getList(e) {
+    e.preventDefault();
     setList([]);
-
     setLoading(true);
+    setFetchError(false);
 
-    const response = await fetch(
-      `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-        method: "GET",
-      }
-    );
-    const data = await response.json();
-    const lastPage = Math.ceil(data.metadata.total / 50);
-
-    let scoreList = [];
-
-    for (let i = 1; i <= lastPage; i++) {
+    try {
       const response = await fetch(
-        `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top&page=${i}`,
+        `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top`,
         {
           headers: {
             Accept: "application/json",
@@ -49,31 +38,52 @@ export default function Home() {
         }
       );
       const data = await response.json();
-      scoreList.push(...data.playerScores);
+      const lastPage = Math.ceil(data.metadata.total / 50);
+
+      let scoreList = [];
+
+      for (let i = 1; i <= lastPage; i++) {
+        const response = await fetch(
+          `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top&page=${i}`,
+          {
+            headers: {
+              Accept: "application/json",
+            },
+            method: "GET",
+          }
+        );
+        const data = await response.json();
+        scoreList.push(...data.playerScores);
+      }
+
+      scoreList = scoreList.filter(
+        (score) => score.leaderboard.ranked === true
+      );
+
+      scoreList = scoreList.filter(
+        (score) =>
+          score.leaderboard.stars >= minStars &&
+          score.leaderboard.stars <= maxStars
+      );
+
+      scoreList.sort((score1, score2) => {
+        const percentage1 =
+          score1.score.baseScore / score1.leaderboard.maxScore;
+        const percentage2 =
+          score2.score.baseScore / score2.leaderboard.maxScore;
+        return percentage1 - percentage2;
+      });
+
+      scoreList =
+        scoreList.length > quantity ? scoreList.slice(0, quantity) : scoreList;
+
+      setList(scoreList);
+
+      setLoading(false);
+    } catch (error) {
+      setFetchError(true);
+      setLoading(false);
     }
-
-    scoreList = scoreList.filter((score) => score.leaderboard.ranked === true);
-
-    scoreList = scoreList.filter(
-      (score) =>
-        score.leaderboard.stars >= minStars &&
-        score.leaderboard.stars <= maxStars
-    );
-
-    scoreList.sort((score1, score2) => {
-      const percentage1 = score1.score.baseScore / score1.leaderboard.maxScore;
-      const percentage2 = score2.score.baseScore / score2.leaderboard.maxScore;
-      return percentage1 - percentage2;
-    });
-
-    scoreList =
-      scoreList.length > quantity ? scoreList.slice(0, quantity) : scoreList;
-
-    setList(scoreList);
-
-    setLoading(false);
-
-    console.log(scoreList);
   }
 
   function generateDowloadableFile() {
@@ -120,6 +130,7 @@ export default function Home() {
         setMinStars={setMinStars}
         maxStars={maxStars}
         setMaxStars={setMaxStars}
+        fetchError={fetchError}
       />
       <LoadingComponent loading={loading} />
       <SongList list={list} />
