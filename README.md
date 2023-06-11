@@ -14,7 +14,8 @@ This web application allows you to filter and sort your scores from ScoreSaber b
 1. Visit the [Get Lower Accuracy BS](https://get-lower-accuracy-bs.vercel.app) website.
 2. Put your ScoreSaber ID in the input.
 3. Use the filter and sort options provided to customize your score list.
-4. Enjoy exploring and analyzing your scores based on accuracy!
+4. Click on the "Generate File" button to create a .bplist file of your scores.
+5. Enjoy exploring and analyzing your scores based on accuracy!
 
 ## Contributing
 
