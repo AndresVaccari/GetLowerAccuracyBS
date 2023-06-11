@@ -51,7 +51,7 @@ export function InputForm({
             src="/helpImage2.png"
             alt="ScoreSaber ID"
             width={500}
-            height={200}
+            height={20}
             className="rounded-xl"
           />
           <span className="text-white text-xs">
