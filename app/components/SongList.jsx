@@ -27,7 +27,7 @@ export function SongList({ list }) {
                   {score.leaderboard.levelAuthorName}
                 </span>
               </div>
-              <div className="flex flex-col gap-2 align-bottom">
+              <div className="flex flex-col gap-2 items-end justify-center">
                 <span className="text-white flex gap-1 items-center justify-center">
                   {score.leaderboard.stars}
                   <AiFillStar />
