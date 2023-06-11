@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ScoreSaber Accuracy Filter and Sorter
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AndresVaccari/GetLowerAccuracyBS/blob/master/LICENSE.md)
+
+This web application allows you to filter and sort your scores from ScoreSaber by accuracy, from lowest to highest. It provides a convenient way to organize your scores based on their accuracy and easily track your progress over time.
+
+## Features
+
+- **Filtering**: Quickly narrow down your scores by accuracy to focus on specific performance levels.
+- **User-friendly Interface**: The intuitive interface makes it easy to navigate and interact with your ScoreSaber scores.
 
 ## Getting Started
 
-First, run the development server:
+1. Visit the [Get Lower Accuracy BS](https://get-lower-accuracy-bs.vercel.app) website.
+2. Put your ScoreSaber ID in the input.
+3. Use the filter and sort options provided to customize your score list.
+4. Enjoy exploring and analyzing your scores based on accuracy!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Contributing
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to [open an issue](https://github.com/AndresVaccari/GetLowerAccuracyBS/issues) or submit a pull request.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is licensed under the MIT License. For more information, please see the [LICENSE](https://github.com/AndresVaccari/GetLowerAccuracyBS/blob/master/LICENSE.md) file.
 
-## Learn More
+## Acknowledgments
 
-To learn more about Next.js, take a look at the following resources:
+- [ScoreSaber](https://scoresaber.com/) for providing the data and API to make this project possible.
+- [Vercel](https://vercel.com/) for hosting the web application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Disclaimer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This application is not affiliated with or endorsed by ScoreSaber. It is an independent project created by [your-name](https://github.com/your-username). Use it at your own risk.
