@@ -111,7 +111,7 @@ export default function Home() {
       type: "text/plain",
     });
     element.href = URL.createObjectURL(file);
-    element.download = "playlist.bplist";
+    element.download = "loweracc.bplist";
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
   }
