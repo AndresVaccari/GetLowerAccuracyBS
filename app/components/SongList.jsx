@@ -5,10 +5,10 @@ export function SongList({ list }) {
   return (
     <>
       {list.length > 0 && (
-        <div className="flex flex-col gap-2 mt-4 h-2/3 overflow-y-scroll w-full items-center">
+        <div className="flex flex-col gap-2 mt-4 overflow-y-scroll overflow-x-hidden grow w-full items-center">
           {list.map((score, index) => (
             <div
-              className="grid grid-cols-6 gap-2 w-1/2 rounded-md p-2 bg-gradient-to-b from-gray-800 to-gray-900 border-2 border-gray-700"
+              className="grid grid-cols-6 gap-2 w-full md:w-1/2 rounded-md p-2 bg-gradient-to-b from-gray-800 to-gray-900 border-2 border-gray-700"
               key={index}
             >
               <Image

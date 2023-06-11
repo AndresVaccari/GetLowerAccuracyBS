@@ -23,7 +23,7 @@ export function InputForm({
 
   return (
     <form
-      className="flex flex-col gap-2 h-1/3 w-1/4 items-center justify-center"
+      className="flex flex-col gap-2 h-3/5 w-full px-2 items-center justify-center md:w-1/2 md:px-0 lg:w-1/4"
       onSubmit={(e) => getList(e)}
     >
       <div className="flex w-full justify-center items-center gap-2">

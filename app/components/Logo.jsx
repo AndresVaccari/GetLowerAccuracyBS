@@ -4,7 +4,7 @@ export default function Logo({ list }) {
   return (
     <>
       {!list.length > 0 && (
-        <div className="flex flex-col gap-2 h-1/6 items-center justify-center">
+        <div className="flex flex-col gap-2 h-1/6 items-center justify-center md:h-1/6">
           <Image
             src="/logo.png"
             alt="Logo"

@@ -134,7 +134,7 @@ export default function Home() {
       />
       <LoadingComponent loading={loading} />
       <SongList list={list} />
-      <Footer />
+      <Footer list={list} />
     </main>
   );
 }
