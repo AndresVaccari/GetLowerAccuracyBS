@@ -89,9 +89,9 @@ export default function Home() {
 
   function generateDowloadableFile() {
     const formatedList = {
-      AllowDuplicates: false,
+      AllowDuplicates: true,
       playlistTitle: `Lower scores [${minStars}⭐-${maxStars}⭐]`,
-      playlistAuthor: "Andres Vaccari",
+      playlistAuthor: "https://github.com/AndresVaccari/GetLowerAccuracyBS",
       image: `base64,${image64}`,
       songs: list.map((score) => {
         return {
