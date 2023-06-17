@@ -5,7 +5,7 @@ export function LoadingComponent({ loading }) {
     <>
       {loading && (
         <div className="absolute bg-black bg-opacity-50 h-screen w-screen flex flex-col justify-center items-center">
-          <Image src="/loading2.gif" width={250} height={250} alt="loading" />
+          <p className="text-white text-6xl">Loading...</p>
         </div>
       )}
     </>
