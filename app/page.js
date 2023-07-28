@@ -30,7 +30,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://scoresaber.com/api/player/${userId}/scores?limit=1&sort=top`,
+        `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=1&sort=top`,
         {
           headers: {
             Accept: "application/json",
@@ -45,7 +45,7 @@ export default function Home() {
 
       for (let i = 1; i <= lastPage; i++) {
         const response = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top&page=${i}`,
+          `https://web-production-55ce.up.railway.app/https://scoresaber.com/api/player/${userId}/scores?limit=50&sort=top&page=${i}`,
           {
             headers: {
               Accept: "application/json",
