@@ -1,3 +1,4 @@
+import { Tooltip } from "@mui/material";
 import Image from "next/image";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -6,21 +7,12 @@ import { AiFillStar } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 
 export function InputForm({
-  setUserId,
   getList,
   list,
   generateDowloadableFile,
-  setQuantity,
-  setMinStars,
-  setMaxStars,
-  fetchError,
+  properties,
+  setProperties,
 }) {
-  const [showHelp, setShowHelp] = useState(false);
-
-  const toggleHelp = () => {
-    setShowHelp(!showHelp);
-  };
-
   return (
     <form
       className="flex flex-col gap-2 h-3/5 w-full px-2 items-center justify-center md:w-1/2 md:px-0 lg:w-1/4"
@@ -30,38 +22,25 @@ export function InputForm({
         <input
           type="text"
           className={`border-2 border-gray-300 w-full rounded-md p-2 text-black ${
-            fetchError && "border-red-500"
+            properties.fetchError && "border-red-500"
           }`}
           placeholder="ScoreSaber ID"
           required
           pattern="^[0-9]+$"
-          onChange={(e) => setUserId(e.target.value)}
+          onChange={(e) =>
+            setProperties({ ...properties, userId: e.target.value })
+          }
         />
-        <button
-          className="border-2 border-gray-300 rounded-md p-1 h-full"
-          type="button"
-          onClick={toggleHelp}
-        >
-          <BiHelpCircle size={25} />
-        </button>
+        <Tooltip title="Your ScoreSaber ID can be found in the URL of your ScoreSaber profile. Example: in https://scoresaber.com/u/76561198115619538 the ID is 76561198115619538">
+          <button type="button">
+            <BiHelpCircle size={25} />
+          </button>
+        </Tooltip>
       </div>
-      {showHelp && (
-        <div className="flex flex-col gap-2 w-full items-center justify-center">
-          <Image
-            src="/helpImage2.png"
-            alt="ScoreSaber ID"
-            width={500}
-            height={20}
-            className="rounded-xl"
-          />
-          <span className="text-white text-xs">
-            Your ScoreSaber ID can be found in the URL of your ScoreSaber
-            profile.
-          </span>
-        </div>
-      )}
       <select
-        onChange={(e) => setQuantity(e.target.value)}
+        onChange={(e) =>
+          setProperties({ ...properties, quantity: e.target.value })
+        }
         className="border-2 border-gray-300 rounded-md p-2 text-black w-full"
       >
         <option value="50">50</option>
@@ -75,8 +54,7 @@ export function InputForm({
           max={13}
           defaultValue={[0, 13]}
           onChange={(e) => {
-            setMinStars(e[0]);
-            setMaxStars(e[1]);
+            setProperties({ ...properties, minStars: e[0], maxStars: e[1] });
           }}
           marks={{
             0: "0",
