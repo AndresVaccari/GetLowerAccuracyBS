@@ -7,6 +7,7 @@ import { LoadingComponent } from "./components/LoadingComponent";
 import Footer from "./components/Footer";
 import Logo from "./components/Logo";
 import { image64 } from "@/public/image64";
+import axios from "axios";
 
 export default function Home() {
   const [list, setList] = useState([]);
@@ -25,31 +26,33 @@ export default function Home() {
     setProperties({ ...properties, loading: true, fetchError: false });
 
     try {
-      const response = await fetch(
-        `https://cors-anywhere-andresvaccari.onrender.com/https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
+      const headers = {
+        "x-requested-with": "XMLHttpRequest",
+        "ngrok-skip-browser-warning": "true",
+        accept: "application/json",
+      };
+
+      const { data } = await axios.get(
+        `https://d803-186-13-96-199.ngrok-free.app/https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
         {
-          headers: {
-            Accept: "application/json",
-          },
-          method: "GET",
+          headers,
         }
       );
-      const data = await response.json();
+
       const lastPage = Math.ceil(data.metadata.total / 50);
+
+      console.log(lastPage);
 
       let scoreList = [];
 
       for (let i = 1; i <= lastPage; i++) {
-        const response = await fetch(
-          `https://cors-anywhere-andresvaccari.onrender.com/https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
+        const { data } = await axios.get(
+          `https://d803-186-13-96-199.ngrok-free.app/https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
           {
-            headers: {
-              Accept: "application/json",
-            },
-            method: "GET",
+            headers,
           }
         );
-        const data = await response.json();
+
         scoreList.push(...data.playerScores);
       }
 
