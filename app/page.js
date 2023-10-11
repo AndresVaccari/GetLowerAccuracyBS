@@ -20,6 +20,8 @@ export default function Home() {
     userId: "",
   });
 
+  const PROXY = "https://a289-186-13-96-151.ngrok-free.app";
+
   async function getList(e) {
     e.preventDefault();
     setList([]);
@@ -33,7 +35,7 @@ export default function Home() {
       };
 
       const { data } = await axios.get(
-        `https://d803-186-13-96-199.ngrok-free.app/https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
+        `${PROXY}/https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
         {
           headers,
         }
@@ -47,7 +49,7 @@ export default function Home() {
 
       for (let i = 1; i <= lastPage; i++) {
         const { data } = await axios.get(
-          `https://d803-186-13-96-199.ngrok-free.app/https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
+          `${PROXY}/https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
           {
             headers,
           }
