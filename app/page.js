@@ -20,7 +20,7 @@ export default function Home() {
     userId: "",
   });
 
-  const PROXY = "https://cae2-186-13-96-151.ngrok-free.app";
+  const PROXY = "https://5183-186-13-96-199.ngrok-free.app";
 
   async function getList(e) {
     e.preventDefault();
