@@ -20,7 +20,7 @@ export default function Home() {
     userId: "",
   });
 
-  const PROXY = "https://c260-186-13-96-175.ngrok-free.app";
+  const PROXY = "https://worker-red-dawn-d25f.andresvaccari34.workers.dev/";
 
   async function getList(e) {
     e.preventDefault();
@@ -33,7 +33,7 @@ export default function Home() {
       };
 
       const { data } = await axios.get(
-        `https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
+        `${PROXY}https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
         {
           headers,
         }
@@ -47,7 +47,7 @@ export default function Home() {
 
       for (let i = 1; i <= lastPage; i++) {
         const { data } = await axios.get(
-          `https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
+          `${PROXY}https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
           {
             headers,
           }
