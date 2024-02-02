@@ -29,13 +29,11 @@ export default function Home() {
 
     try {
       const headers = {
-        "x-requested-with": "XMLHttpRequest",
-        "ngrok-skip-browser-warning": "true",
         accept: "application/json",
       };
 
       const { data } = await axios.get(
-        `${PROXY}/https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
+        `https://scoresaber.com/api/player/${properties.userId}/scores?limit=1&sort=top`,
         {
           headers,
         }
@@ -49,7 +47,7 @@ export default function Home() {
 
       for (let i = 1; i <= lastPage; i++) {
         const { data } = await axios.get(
-          `${PROXY}/https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
+          `https://scoresaber.com/api/player/${properties.userId}/scores?limit=50&sort=top&page=${i}`,
           {
             headers,
           }
